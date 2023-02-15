@@ -1,7 +1,6 @@
 module.exports = {
   displayName: "boys-development-project",
   clearMocks: true,
-  preset: "../../jest.preset.js",
   transform: {
     // Use babel-jest to transpile tests with the next/babel preset
     // https://jestjs.io/docs/configuration#transform-objectstring-pathtotransformer--pathtotransformer-object
