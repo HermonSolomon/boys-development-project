@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Flex, Text, Image } from "@chakra-ui/react";
+import { Box, Flex, Text, Image, Button } from "@chakra-ui/react";
 
 type Props = {};
 
@@ -137,6 +137,156 @@ const Body = () => {
               underachievers.
             </Text>
           </Flex>
+        </Flex>
+        {/* What's new */}
+        <Box>
+          <Text
+            fontSize="32px"
+            fontWeight={600}
+            color="#653cf0"
+            my={12}
+            textAlign="center"
+          >
+            What's New
+          </Text>
+          <Flex justifyContent="center" gap="2.5rem">
+            <Box textAlign="center">
+              <Image
+                src="/whats-new-img-1.jpg"
+                objectFit="cover"
+                objectPosition="50% 50%"
+              />
+              <Text
+                fontSize="24px"
+                fontWeight="600"
+                textAlign="center"
+                my="1rem"
+              >
+                Screens and under 5's
+              </Text>
+              <Button
+                variant="outline"
+                color="#653cf0"
+                border="solid 2px #653cf0"
+                borderRadius="20px"
+                px="1.5rem"
+              >
+                Download
+              </Button>
+            </Box>
+            <Box textAlign="center">
+              <Image
+                src="/whats-new-img-2.jpg"
+                objectFit="cover"
+                objectPosition="50% 50%"
+              />
+              <Text
+                fontSize="24px"
+                fontWeight="600"
+                textAlign="center"
+                my="1rem"
+              >
+                Screens and under 5’s (with references)
+              </Text>
+              <Button
+                variant="outline"
+                color="#653cf0"
+                border="solid 2px #653cf0"
+                borderRadius="20px"
+                px="1.5rem"
+              >
+                Download
+              </Button>
+            </Box>
+          </Flex>
+        </Box>
+      </Box>
+      {/* Our Consultants*/}
+      <Box bg="#653cf0" w="100%" my={14}>
+        <Text
+          fontSize="32px"
+          fontWeight={600}
+          color="white"
+          textAlign="center"
+          py={12}
+        >
+          Our Consultants
+        </Text>
+        <Flex
+          color="white"
+          gap={16}
+          px="6rem"
+          //   py={8}
+          textAlign="left"
+          justifyContent="center"
+        >
+          <Box w="25%">
+            <Text fontSize="24px" fontWeight="600" my="1rem">
+              Trefor Lloyd
+            </Text>
+            <Text>
+              Trefor Lloyd has a long experience of carrying out research and
+              investigations (usually leading to projects). He has over the
+              years researched, developed and delivered a range of programmes
+              targeting boys and young men, primarily in schools, but also youth
+              services, criminal justice and community settings.{" "}
+            </Text>
+            <Button
+              variant="outline"
+              color="white"
+              border="solid 2px white"
+              borderRadius="20px"
+              px="1.5rem"
+              my="1.5rem"
+            >
+              Learn More
+            </Button>
+          </Box>
+          <Box w="25%">
+            <Text fontSize="24px" fontWeight="600" my="1rem">
+              Neil Davidson
+            </Text>
+            <Text>
+              Neil Davidson trained as a youth worker, and has been involved in
+              developing work with boys and young men since 1982, with a focus
+              on sex and relationships education. He was a co-founder of Working
+              With Men, and then a full-time consultant for Working with Men
+              from 1991 to 2006.
+            </Text>
+            <Button
+              variant="outline"
+              color="white"
+              border="solid 2px white"
+              borderRadius="20px"
+              px="1.5rem"
+              my="1.5rem"
+            >
+              Learn More
+            </Button>
+          </Box>
+          <Box w="25%">
+            <Text fontSize="24px" fontWeight="600" my="1rem">
+              Simon Forrest
+            </Text>
+            <Text>
+              Simon Forrest is Principal of the College of St Hild & St Bede and
+              a Professor of Sociology at Durham University. He is a trustee of
+              AVERT (The AIDS Education and Research Trust). He has previously
+              been Director of the Sex Education Forum, a Research Fellow in the
+              Department of Sexually Transmitted Diseases at University College
+              London.
+            </Text>
+            <Button
+              variant="outline"
+              color="white"
+              border="solid 2px white"
+              borderRadius="20px"
+              px="1.5rem"
+              my="1.5rem"
+            >
+              Learn More
+            </Button>
+          </Box>
         </Flex>
       </Box>
     </>

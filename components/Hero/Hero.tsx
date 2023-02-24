@@ -20,17 +20,17 @@ export const Hero = ({
 }: HeroProps) => {
   const [activeSlide, setActiveSlide] = useState<number>(0);
 
-  // useEffect(() => {
-  //   let intervalId: NodeJS.Timeout | null = null;
-  //   if (autoPlay) {
-  //     intervalId = setInterval(() => {
-  //       setActiveSlide((prevActive) =>
-  //         prevActive === images.length - 1 ? 0 : prevActive + 1
-  //       );
-  //     }, autoPlayInterval);
-  //   }
-  //   return () => clearInterval(intervalId!);
-  // }, [autoPlay, autoPlayInterval, images.length]);
+  useEffect(() => {
+    let intervalId: NodeJS.Timeout | null = null;
+    if (autoPlay) {
+      intervalId = setInterval(() => {
+        setActiveSlide((prevActive) =>
+          prevActive === images.length - 1 ? 0 : prevActive + 1
+        );
+      }, autoPlayInterval);
+    }
+    return () => clearInterval(intervalId!);
+  }, [autoPlay, autoPlayInterval, images.length]);
 
   const handleNextClick = () => {
     if (activeSlide === images.length - 1) {
@@ -83,25 +83,29 @@ export const Hero = ({
             </Box>
           ))}
         </Flex>
-        <IconButton
+        <ChevronLeftIcon
+          fontSize={42}
+          paddingLeft="1rem"
+          color="white"
           position="absolute"
           top="50%"
           left={0}
           transform="translateY(-50%)"
-          colorScheme="gray"
           aria-label="Previous slide"
-          icon={<ChevronLeftIcon />}
           onClick={handlePrevClick}
+          cursor="pointer"
         />
-        <IconButton
+        <ChevronRightIcon
+          fontSize={42}
+          paddingRight="1rem"
+          color="white"
           position="absolute"
           top="50%"
           right={0}
           transform="translateY(-50%)"
-          colorScheme="gray"
           aria-label="Next slide"
-          icon={<ChevronRightIcon />}
           onClick={handleNextClick}
+          cursor="pointer"
         />
         <Stack
           direction="row"
