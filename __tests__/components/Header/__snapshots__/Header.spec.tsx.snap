@@ -1,0 +1,88 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header component matches the snapshot 1`] = `
+<div>
+  <div
+    class="css-0"
+  >
+    <nav
+      class="css-17md98w"
+    >
+      <div
+        class="css-dsyim5"
+      >
+        <button
+          aria-label="Toggle Navigation"
+          class="chakra-button css-p7mkev"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="chakra-icon css-onkibi"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M 3 5 A 1.0001 1.0001 0 1 0 3 7 L 21 7 A 1.0001 1.0001 0 1 0 21 5 L 3 5 z M 3 11 A 1.0001 1.0001 0 1 0 3 13 L 21 13 A 1.0001 1.0001 0 1 0 21 11 L 3 11 z M 3 17 A 1.0001 1.0001 0 1 0 3 19 L 21 19 A 1.0001 1.0001 0 1 0 21 17 L 3 17 z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+      </div>
+      <div
+        class="css-dnzk3y"
+      >
+        <p
+          class="chakra-text css-1hgmzub"
+        >
+          Logo
+        </p>
+        <div
+          class="css-51qgs1"
+        >
+          <div
+            class="chakra-stack css-1wzma5t"
+          >
+            <button
+              class="chakra-button css-1k6w77y"
+              type="button"
+            >
+              Home
+            </button>
+            <button
+              class="chakra-button css-1k6w77y"
+              type="button"
+            >
+              About
+            </button>
+            <button
+              class="chakra-button css-1k6w77y"
+              type="button"
+            >
+              Programme
+            </button>
+            <button
+              class="chakra-button css-1k6w77y"
+              type="button"
+            >
+              Resources
+            </button>
+            <button
+              class="chakra-button css-1k6w77y"
+              type="button"
+            >
+              Blog
+            </button>
+            <button
+              class="chakra-button css-1k6w77y"
+              type="button"
+            >
+              Contact
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</div>
+`;
