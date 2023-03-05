@@ -26,6 +26,14 @@ module.exports = {
     "!<rootDir>/sanity.tsx/**",
     "!<rootDir>/components/Wrapper/**",
   ],
+  // coverageThreshold: {
+  //   global: {
+  //     branches: 100,
+  //     function: 100,
+  //     lines: 100,
+  //     statements: 100,
+  //   },
+  // },
   coverageDirectory: "./coverage",
   coverageReporters: ["html", "text"],
   setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],

@@ -30,7 +30,7 @@ export const Header = () => {
     },
     {
       link: "Programme",
-      path: "/programme",
+      path: "/programmes",
     },
     {
       link: "Blog",
@@ -72,6 +72,7 @@ export const Header = () => {
           justify={{ base: "center", md: "space-between" }}
           w="100%"
           py={{ base: 2, md: 0 }}
+          p="20px"
         >
           <Text fontSize="lg" fontWeight="bold">
             Logo
@@ -81,7 +82,7 @@ export const Header = () => {
             flexBasis={{ base: "100%", md: "auto" }}
             flexGrow={1}
             alignItems="center"
-            justifyContent="center"
+            justifyContent="flex-end"
             mt={{ base: 4, md: 0 }}
             borderTop={{ base: "1px", md: "none" }}
           >

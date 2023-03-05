@@ -4,7 +4,7 @@ import { Grid, GridItem, Box, Button, Flex, Text } from "@chakra-ui/react";
 import React from "react";
 import { resourcesContent, ResourcesI } from "../staticData";
 
-const resources = () => {
+const Resources = () => {
   return (
     <>
       <Header />
@@ -58,4 +58,4 @@ const resources = () => {
   );
 };
 
-export default resources;
+export default Resources;

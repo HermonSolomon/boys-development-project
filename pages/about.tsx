@@ -14,6 +14,7 @@ const About = () => {
         blur={false}
         strength={300}
         children={undefined}
+        title="About"
       />
       <Box
         bg="#653cf0"
@@ -40,8 +41,8 @@ const About = () => {
           <strong>Simon Forrest:</strong> simon.forrest@durham.ac.uk
         </Text>
       </Box>
-      <Box textAlign="center">
-        <Wrapper w="50%">
+      <Box textAlign="center" w="50%" margin="0 auto">
+        <Wrapper>
           <Text color="#653cf0" fontSize={24}>
             What we offer
           </Text>
