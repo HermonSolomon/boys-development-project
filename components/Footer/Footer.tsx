@@ -4,7 +4,7 @@ import { FaFacebook, FaTwitter, FaYoutube, FaInstagram } from "react-icons/fa";
 
 type Props = {};
 
-export const Footer = (props: Props) => {
+export const Footer = () => {
   return (
     <Box>
       <HStack display="flex" justifyContent="center" flexDir="column" gap={2}>
@@ -13,10 +13,10 @@ export const Footer = (props: Props) => {
         <Text>270 Lordship Lane</Text>
         <Text>Dulwich, London SE22 8LY</Text>
         <Flex gap="1rem">
-          <FaFacebook />
-          <FaTwitter />
-          <FaYoutube />
-          <FaInstagram />
+          <FaFacebook role="img" />
+          <FaTwitter role="img" />
+          <FaYoutube role="img" />
+          <FaInstagram role="img" />
         </Flex>
       </HStack>
     </Box>

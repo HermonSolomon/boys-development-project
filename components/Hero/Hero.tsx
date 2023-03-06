@@ -94,6 +94,7 @@ export const Hero = ({
           aria-label="Previous slide"
           onClick={handlePrevClick}
           cursor="pointer"
+          role="button"
         />
         <ChevronRightIcon
           fontSize={42}
@@ -106,6 +107,7 @@ export const Hero = ({
           aria-label="Next slide"
           onClick={handleNextClick}
           cursor="pointer"
+          role="button"
         />
         <Stack
           direction="row"
