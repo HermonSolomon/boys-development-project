@@ -12,7 +12,7 @@ import {
   Textarea,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
-import { SubmitHandler, useForm } from "react-hook-form";
+import { type SubmitHandler, useForm } from "react-hook-form";
 
 interface FormValues {
   name: string;
@@ -22,6 +22,7 @@ interface FormValues {
   address: string;
   subject: string;
   message: string;
+  invalid: boolean;
 }
 
 const Contact = () => {
@@ -29,7 +30,7 @@ const Contact = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormValues>();
+  } = useForm<FormValues>({ mode: "onBlur" });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -39,6 +40,7 @@ const Contact = () => {
     console.log(data);
     setIsSubmitting(false);
   };
+
   return (
     <>
       <Header />
@@ -52,34 +54,37 @@ const Contact = () => {
         </Text>
         <Text>Trefor Lloyd on tlloydbdp@mail.com or 07788781759.</Text>
       </Box>
-      <Box w="50%" m="0 auto">
+      <Box w="50%" m="0 auto" textAlign="center">
         <form onSubmit={handleSubmit(onSubmit)}>
           <Flex gap={6}>
             <Box w="100%">
               {/* name */}
               <FormControl isInvalid={!!errors.name}>
-                <FormLabel mb={6} htmlFor="name">
-                  Name
-                </FormLabel>
+                <FormLabel htmlFor="name">Name:</FormLabel>
                 <Input
                   type="text"
                   id="name"
                   bg="transparent"
                   border="none"
-                  borderBottom="solid 2px grey"
+                  borderBottom={
+                    errors.name ? "solid 2px red" : "solid 2px grey"
+                  }
                   borderRadius="0"
-                  boxShadow="var(--shd,0 0 0 transparent)"
+                  boxShadow="none !important"
                   max-width="100%"
                   mb={2}
+                  _focus={{
+                    zIndex: "1",
+                    borderColor: "#3182ce",
+                    boxShadow: "none",
+                  }}
                   {...register("name", { required: "Name is required" })}
                 />
                 <FormErrorMessage>{errors.name?.message}</FormErrorMessage>
               </FormControl>
               {/* surname */}
               <FormControl isInvalid={!!errors.surname}>
-                <FormLabel mb={6} htmlFor="surname">
-                  Surname
-                </FormLabel>
+                <FormLabel htmlFor="surname">Surname:</FormLabel>
                 <Input
                   type="text"
                   id="surname"
@@ -87,27 +92,37 @@ const Contact = () => {
                   border="none"
                   borderBottom="solid 2px grey"
                   borderRadius="0"
-                  boxShadow="var(--shd,0 0 0 transparent)"
+                  boxShadow="none !important"
                   max-width="100%"
                   mb={2}
-                  {...register("name", { required: "Name is required" })}
+                  _focus={{
+                    zIndex: "1",
+                    borderColor: "#3182ce",
+                    boxShadow: "none",
+                  }}
+                  {...register("surname", { required: "Name is required" })}
                 />
-                <FormErrorMessage>{errors.name?.message}</FormErrorMessage>
+                <FormErrorMessage>{errors.surname?.message}</FormErrorMessage>
               </FormControl>
               {/* email */}
               <FormControl isInvalid={!!errors.email}>
-                <FormLabel mb={6} htmlFor="email">
-                  Email
-                </FormLabel>
+                <FormLabel htmlFor="email">Email:</FormLabel>
                 <Input
                   type="email"
                   id="email"
                   border="none"
-                  borderBottom="solid 2px grey"
+                  borderBottom={
+                    !!errors.email ? "solid 2px red" : "solid 2px grey"
+                  }
                   borderRadius="0"
-                  boxShadow="var(--shd,0 0 0 transparent)"
+                  boxShadow="none !important"
                   max-width="100%"
                   mb={2}
+                  _focus={{
+                    zIndex: "1",
+                    borderColor: "#3182ce",
+                    boxShadow: "none",
+                  }}
                   {...register("email", { required: "Email is required" })}
                 />
                 <FormErrorMessage>{errors.email?.message}</FormErrorMessage>
@@ -117,63 +132,72 @@ const Contact = () => {
             <Box w="100%">
               {/* phone */}
               <FormControl isInvalid={!!errors.phone}>
-                <FormLabel mb={6} htmlFor="phone">
-                  Phone
-                </FormLabel>
+                <FormLabel htmlFor="phone">Phone:</FormLabel>
                 <Input
                   type="number"
                   id="Phone"
                   border="none"
                   borderBottom="solid 2px grey"
                   borderRadius="0"
-                  boxShadow="var(--shd,0 0 0 transparent)"
+                  boxShadow="none !important"
                   max-width="100%"
                   mb={2}
+                  _focus={{
+                    zIndex: "1",
+                    borderColor: "#3182ce",
+                    boxShadow: "none",
+                  }}
                   {...register("phone", { required: "Phone is required" })}
                 />
-                <FormErrorMessage>{errors.email?.message}</FormErrorMessage>
+                <FormErrorMessage>{errors.phone?.message}</FormErrorMessage>
               </FormControl>
               {/* address */}
               <FormControl isInvalid={!!errors.address}>
-                <FormLabel mb={6} htmlFor="address">
-                  Address
-                </FormLabel>
+                <FormLabel htmlFor="address">Address:</FormLabel>
                 <Input
                   type="text"
                   id="Phone"
                   border="none"
                   borderBottom="solid 2px grey"
                   borderRadius="0"
-                  boxShadow="var(--shd,0 0 0 transparent)"
+                  boxShadow="none !important"
                   max-width="100%"
                   mb={2}
-                  {...register("address", { required: "Phone is required" })}
+                  _focus={{
+                    zIndex: "1",
+                    borderColor: "#3182ce",
+                    boxShadow: "none",
+                  }}
+                  {...register("address", { required: "address is required" })}
                 />
-                <FormErrorMessage>{errors.email?.message}</FormErrorMessage>
+                <FormErrorMessage>{errors.address?.message}</FormErrorMessage>
               </FormControl>
               {/* Subject */}
               <FormControl isInvalid={!!errors.subject}>
-                <FormLabel mb={6} htmlFor="address">
-                  Subject
-                </FormLabel>
+                <FormLabel htmlFor="address">Subject:</FormLabel>
                 <Input
                   type="text"
                   id="Phone"
                   border="none"
                   borderBottom="solid 2px grey"
                   borderRadius="0"
-                  boxShadow="var(--shd,0 0 0 transparent)"
+                  boxShadow="none !important"
                   max-width="100%"
                   mb={4}
-                  {...register("subject", { required: "Phone is required" })}
+                  _focus={{
+                    zIndex: "1",
+                    borderColor: "#3182ce",
+                    boxShadow: "none",
+                  }}
+                  {...register("subject", { required: "Subject is required" })}
                 />
-                <FormErrorMessage>{errors.email?.message}</FormErrorMessage>
+                <FormErrorMessage>{errors.subject?.message}</FormErrorMessage>
               </FormControl>
             </Box>
           </Flex>
 
           <FormControl isInvalid={!!errors.message}>
-            <FormLabel htmlFor="message">Message</FormLabel>
+            <FormLabel htmlFor="message">Message:</FormLabel>
             <Textarea
               id="message"
               {...register("message", { required: "Message is required" })}
@@ -188,7 +212,8 @@ const Contact = () => {
             color="#653cf0"
             border="solid 2px #653cf0"
             borderRadius="20px"
-            px="1.5rem"
+            my={9}
+            px="2.5rem"
           >
             Submit
           </Button>

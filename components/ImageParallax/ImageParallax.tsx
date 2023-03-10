@@ -5,7 +5,7 @@ interface ParallaxProps {
   strength?: number;
   height?: number;
   blur?: boolean;
-  imageUrl?: string;
+  imageUrl?: string | React.ReactNode;
   title: string;
   children: React.ReactNode;
 }
@@ -31,7 +31,7 @@ const ImageParallax = ({
     };
   }, []);
 
-  // const transform = `translateY(${offsetY * strength}px)`;
+  const transform = `translateY(${offsetY * strength}px)`;
 
   return (
     <Box
@@ -44,6 +44,7 @@ const ImageParallax = ({
       position="relative"
       overflow="hidden"
       filter={blur ? "blur(3000px)" : ""}
+      data-testid="image-parallax"
     >
       <Text
         color="white"
@@ -55,6 +56,7 @@ const ImageParallax = ({
         top="50%"
         left="50%"
         transform=" translate(-50%, -50%)"
+        data-testid="parallax-title"
       >
         {title}
       </Text>
@@ -64,8 +66,8 @@ const ImageParallax = ({
         left="0"
         width="100%"
         height="100%"
-        // style={{ transform }}
-        transform={`translateY(${offsetY * strength}px)`}
+        transform={transform}
+        data-testid="image-parallax2"
       >
         {children}
       </Box>
