@@ -19,7 +19,11 @@ const Resources = () => {
         >
           Resources
         </Text>
-        <Grid templateColumns={{ sm: "1fr", md: "1fr 1fr" }} gap={6} px="24%">
+        <Grid
+          templateColumns={{ sm: "1fr", md: "1fr 1fr" }}
+          gap={6}
+          px={{ base: 4, md: "24%" }}
+        >
           {resourcesContent.map((item: ResourcesI) => (
             <GridItem
               bg="white"

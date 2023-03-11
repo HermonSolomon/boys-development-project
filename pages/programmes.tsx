@@ -19,88 +19,102 @@ const Programmes = () => {
       <Box
         textAlign="center"
         w="100%"
-        margin="0 auto"
+        // margin="0 auto"
         bg="#653cf0"
         color="white"
-        px={32}
+        px={{ base: 0, md: 24 }}
       >
-        <Wrapper>
-          <Flex justifyContent="center" mb={8}>
-            <Flex
-              bg="white"
-              color="black"
-              w="50%"
-              px={24}
-              flexDirection="column"
-              textAlign="left"
-              py="8.3rem"
-            >
-              <Text color="#653cf0" fontWeight={600} mb={6}>
-                Stand Out Boys Project
-              </Text>
-              <Text mb={6}>
-                SOBP targets children (but mainly boys) in reception, who are
-                finding it difficult to settle into school. The aim is to help
-                them develop the skills they need to get the most from the
-                classroom, and reduce their risk of underachievement.
-              </Text>
-              <Button>Read More</Button>
-            </Flex>
-            <Box>
-              <Image src="/programmes-boy-img-1.jpg" alt="" />
-            </Box>
+        <Flex
+          justifyContent="center"
+          mb={{ base: 4, md: 8 }}
+          flexWrap="wrap"
+          flexDirection="column-reverse"
+        >
+          <Flex
+            bg="white"
+            color="black"
+            w={{ base: "100%", md: "50%" }}
+            px={{ base: 4, md: 24 }}
+            flexDirection="column"
+            textAlign="left"
+            py={{ base: 8, md: "8.5rem" }}
+          >
+            <Text color="#653cf0" fontWeight={600} mb={6}>
+              Stand Out Boys Project
+            </Text>
+            <Text mb={6}>
+              SOBP targets children (but mainly boys) in reception, who are
+              finding it difficult to settle into school. The aim is to help
+              them develop the skills they need to get the most from the
+              classroom, and reduce their risk of underachievement.
+            </Text>
+            <Button>Read More</Button>
           </Flex>
-          <Flex justifyContent="center" mb={8}>
-            <Flex
-              bg="white"
-              color="black"
-              w="50%"
-              px={24}
-              flexDirection="column"
-              textAlign="left"
-              py="8.3rem"
-            >
-              <Text color="#653cf0" fontWeight={600} mb={6}>
-                Stand Out Boys Project
-              </Text>
-              <Text mb={6}>
-                SOBP targets children (but mainly boys) in reception, who are
-                finding it difficult to settle into school. The aim is to help
-                them develop the skills they need to get the most from the
-                classroom, and reduce their risk of underachievement.
-              </Text>
-              <Button>Read More</Button>
-            </Flex>
-            <Box>
-              <Image src="/programmes-boy-img-2.jpg" alt="" />
-            </Box>
+          <Box>
+            <Image src="/programmes-boy-img-1.jpg" alt="" />
+          </Box>
+        </Flex>
+        <Flex
+          justifyContent="center"
+          mb={{ base: 4, md: 8 }}
+          flexWrap="wrap"
+          flexDirection="column-reverse"
+        >
+          <Flex
+            bg="white"
+            color="black"
+            w={{ base: "100%", md: "50%" }}
+            px={{ base: 4, md: 24 }}
+            flexDirection="column"
+            textAlign="left"
+            py={{ base: 8, md: "8.5rem" }}
+          >
+            <Text color="#653cf0" fontWeight={600} mb={6}>
+              Stand Out Boys Project
+            </Text>
+            <Text mb={6}>
+              SOBP targets children (but mainly boys) in reception, who are
+              finding it difficult to settle into school. The aim is to help
+              them develop the skills they need to get the most from the
+              classroom, and reduce their risk of underachievement.
+            </Text>
+            <Button>Read More</Button>
           </Flex>
-          <Flex justifyContent="center" mb={8}>
-            <Flex
-              bg="white"
-              color="black"
-              w="50%"
-              px={24}
-              flexDirection="column"
-              textAlign="left"
-              py="8.3rem"
-            >
-              <Text color="#653cf0" fontWeight={600} mb={6}>
-                Stand Out Boys Project
-              </Text>
-              <Text mb={6}>
-                SOBP targets children (but mainly boys) in reception, who are
-                finding it difficult to settle into school. The aim is to help
-                them develop the skills they need to get the most from the
-                classroom, and reduce their risk of underachievement.
-              </Text>
-              <Button>Read More</Button>
-            </Flex>
-            <Box>
-              <Image src="/programmes-boy-img-3.jpg" alt="" />
-            </Box>
+          <Box>
+            <Image src="/programmes-boy-img-2.jpg" alt="" />
+          </Box>
+        </Flex>
+        <Flex
+          justifyContent="center"
+          mb={{ base: 4, md: 8 }}
+          flexWrap="wrap"
+          flexDirection="column-reverse"
+        >
+          <Flex
+            bg="white"
+            color="black"
+            w={{ base: "100%", md: "50%" }}
+            px={{ base: 4, md: 24 }}
+            flexDirection="column"
+            textAlign="left"
+            py={{ base: 8, md: "8.5rem" }}
+            mb={4}
+          >
+            <Text color="#653cf0" fontWeight={600} mb={6}>
+              Stand Out Boys Project
+            </Text>
+            <Text mb={6}>
+              SOBP targets children (but mainly boys) in reception, who are
+              finding it difficult to settle into school. The aim is to help
+              them develop the skills they need to get the most from the
+              classroom, and reduce their risk of underachievement.
+            </Text>
+            <Button>Read More</Button>
           </Flex>
-        </Wrapper>
+          <Box>
+            <Image src="/programmes-boy-img-3.jpg" alt="" />
+          </Box>
+        </Flex>
       </Box>
       <Footer />
     </>

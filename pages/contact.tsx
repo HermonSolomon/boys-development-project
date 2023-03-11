@@ -54,9 +54,14 @@ const Contact = () => {
         </Text>
         <Text>Trefor Lloyd on tlloydbdp@mail.com or 07788781759.</Text>
       </Box>
-      <Box w="50%" m="0 auto" textAlign="center">
+      <Box
+        w={{ base: "100%", md: "50%" }}
+        px={{ base: 8, md: 24 }}
+        m="0 auto"
+        textAlign="center"
+      >
         <form onSubmit={handleSubmit(onSubmit)}>
-          <Flex gap={6}>
+          <Flex gap={6} flexDir={{ base: "column", md: "row" }}>
             <Box w="100%">
               {/* name */}
               <FormControl isInvalid={!!errors.name}>

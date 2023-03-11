@@ -6,8 +6,17 @@ type Props = {};
 const Body = () => {
   return (
     <>
-      <Flex px={44} flex="1 1 768px">
-        <Box bgColor="#653cf0" color="white" textAlign="center">
+      <Flex
+        flex="1 1 768px"
+        flexWrap="wrap"
+        flexDir={{ base: "column", md: "row" }}
+      >
+        <Box
+          bgColor="#653cf0"
+          color="white"
+          textAlign="center"
+          w={{ base: "100%", md: "50%" }}
+        >
           <Text color="white" mt={16} mb={12} fontWeight="600" fontSize="32px">
             About Our <br /> Organization
           </Text>
@@ -24,11 +33,11 @@ const Body = () => {
             and with parents before they arrive in school.
           </Text>
         </Box>
-        <Box w="100%">
+        <Box w={{ base: "100%", md: "50%" }}>
           <Image
             src="/main-brothers-img.jpg"
             width="770px"
-            height="644px"
+            // height="644px"
             object-fit="cover"
             object-position="50% 50%"
             alt={""}
@@ -36,7 +45,7 @@ const Body = () => {
         </Box>
       </Flex>
       {/* Approach */}
-      <Box px={100}>
+      <Box>
         <Text
           my={8}
           color="#653cf0"
@@ -47,13 +56,17 @@ const Body = () => {
           Approach
         </Text>
         <Flex
-          px={44}
-          gap={24}
+          px={{ base: 4 }}
+          gap={{ base: 4, md: 24 }}
           flexDirection="row"
           flexWrap="wrap"
           justifyContent="center"
         >
-          <Flex flexDirection="column" w="24%" position="relative">
+          <Flex
+            flexDirection="column"
+            w={{ base: "100%", md: "24%" }}
+            position="relative"
+          >
             <Text as="span" fontSize={200} color="#ffeae8" fontWeight={800}>
               01
             </Text>
@@ -70,7 +83,11 @@ const Body = () => {
               underachievers.
             </Text>
           </Flex>
-          <Flex flexDirection="column" w="24%" position="relative">
+          <Flex
+            flexDirection="column"
+            w={{ base: "100%", md: "24%" }}
+            position="relative"
+          >
             <Text as="span" fontSize={200} color="#ecdbff" fontWeight={800}>
               02
             </Text>
@@ -86,7 +103,12 @@ const Body = () => {
               underachievers.
             </Text>
           </Flex>
-          <Flex flexDirection="column" w="24%" position="relative" mb={12}>
+          <Flex
+            flexDirection="column"
+            w={{ base: "100%", md: "24%" }}
+            position="relative"
+            mb={12}
+          >
             <Text as="span" fontSize={200} color="#d4edee" fontWeight={800}>
               03
             </Text>
@@ -103,7 +125,11 @@ const Body = () => {
               underachievers.
             </Text>
           </Flex>
-          <Flex flexDirection="column" w="24%" position="relative">
+          <Flex
+            flexDirection="column"
+            w={{ base: "100%", md: "24%" }}
+            position="relative"
+          >
             <Text as="span" fontSize={200} color="#ecdbff" fontWeight={800}>
               04
             </Text>
@@ -120,7 +146,11 @@ const Body = () => {
               underachievers.
             </Text>
           </Flex>
-          <Flex flexDirection="column" w="24%" position="relative">
+          <Flex
+            flexDirection="column"
+            w={{ base: "100%", md: "24%" }}
+            position="relative"
+          >
             <Text as="span" fontSize={200} color="#d4edee" fontWeight={800}>
               05
             </Text>
@@ -138,68 +168,63 @@ const Body = () => {
             </Text>
           </Flex>
         </Flex>
-        {/* What's new */}
-        <Box>
-          <Text
-            fontSize="32px"
-            fontWeight={600}
-            color="#653cf0"
-            my={12}
-            textAlign="center"
-          >
-            What's New
-          </Text>
-          <Flex justifyContent="center" gap="2.5rem">
-            <Box textAlign="center">
-              <Image
-                src="/whats-new-img-1.jpg"
-                objectFit="cover"
-                objectPosition="50% 50%"
-              />
-              <Text
-                fontSize="24px"
-                fontWeight="600"
-                textAlign="center"
-                my="1rem"
-              >
-                Screens and under 5's
-              </Text>
-              <Button
-                variant="outline"
-                color="#653cf0"
-                border="solid 2px #653cf0"
-                borderRadius="20px"
-                px="1.5rem"
-              >
-                Download
-              </Button>
-            </Box>
-            <Box textAlign="center">
-              <Image
-                src="/whats-new-img-2.jpg"
-                objectFit="cover"
-                objectPosition="50% 50%"
-              />
-              <Text
-                fontSize="24px"
-                fontWeight="600"
-                textAlign="center"
-                my="1rem"
-              >
-                Screens and under 5’s (with references)
-              </Text>
-              <Button
-                variant="outline"
-                color="#653cf0"
-                border="solid 2px #653cf0"
-                borderRadius="20px"
-                px="1.5rem"
-              >
-                Download
-              </Button>
-            </Box>
-          </Flex>
-        </Box>
+      </Box>
+      {/* What's new */}
+      <Box>
+        <Text
+          fontSize="32px"
+          fontWeight={600}
+          color="#653cf0"
+          my={12}
+          textAlign="center"
+        >
+          What's New
+        </Text>
+        <Flex
+          justifyContent="center"
+          gap="2.5rem"
+          flexWrap="wrap"
+          flexDir={{ base: "column", md: "row" }}
+        >
+          <Box textAlign="center">
+            <Image
+              src="/whats-new-img-1.jpg"
+              objectFit="cover"
+              objectPosition="50% 50%"
+            />
+            <Text fontSize="24px" fontWeight="600" textAlign="center" my="1rem">
+              Screens and under 5's
+            </Text>
+            <Button
+              variant="outline"
+              color="#653cf0"
+              border="solid 2px #653cf0"
+              borderRadius="20px"
+              px="1.5rem"
+            >
+              Download
+            </Button>
+          </Box>
+          <Box textAlign="center">
+            <Image
+              src="/whats-new-img-2.jpg"
+              objectFit="cover"
+              objectPosition="50% 50%"
+            />
+            <Text fontSize="24px" fontWeight="600" textAlign="center" my="1rem">
+              Screens and under 5’s (with references)
+            </Text>
+            <Button
+              variant="outline"
+              color="#653cf0"
+              border="solid 2px #653cf0"
+              borderRadius="20px"
+              px="1.5rem"
+            >
+              Download
+            </Button>
+          </Box>
+        </Flex>
       </Box>
       {/* Our Consultants*/}
       <Box bg="#653cf0" w="100%" my={14}>
@@ -214,14 +239,20 @@ const Body = () => {
         </Text>
         <Flex
           color="white"
-          gap={16}
-          px="6rem"
+          gap={{ base: 6, md: 16 }}
+          px={{ base: 4 }}
           //   py={8}
           textAlign="left"
           justifyContent="center"
+          flexWrap="wrap"
+          flexDir={{ base: "column", md: "row" }}
         >
-          <Box w="25%">
-            <Text fontSize="24px" fontWeight="600" my="1rem">
+          <Box flex=" 1 1 30%">
+            <Text
+              fontSize="24px"
+              fontWeight="600"
+              my={{ base: 4, md: "1.5rem" }}
+            >
               Trefor Lloyd
             </Text>
             <Text>
@@ -237,13 +268,21 @@ const Body = () => {
               border="solid 2px white"
               borderRadius="20px"
               px="1.5rem"
-              my="1.5rem"
+              my={{ base: 4, md: "1.5rem" }}
+              _hover={{
+                color: "#653cf0",
+                bg: "white",
+              }}
             >
               Learn More
             </Button>
           </Box>
-          <Box w="25%">
-            <Text fontSize="24px" fontWeight="600" my="1rem">
+          <Box flex=" 1 1 30%">
+            <Text
+              fontSize="24px"
+              fontWeight="600"
+              my={{ base: 4, md: "1.5rem" }}
+            >
               Neil Davidson
             </Text>
             <Text>
@@ -259,13 +298,21 @@ const Body = () => {
               border="solid 2px white"
               borderRadius="20px"
               px="1.5rem"
-              my="1.5rem"
+              my={{ base: 4, md: "1.5rem" }}
+              _hover={{
+                color: "#653cf0",
+                bg: "white",
+              }}
             >
               Learn More
             </Button>
           </Box>
-          <Box w="25%">
-            <Text fontSize="24px" fontWeight="600" my="1rem">
+          <Box flex=" 1 1 30%">
+            <Text
+              fontSize="24px"
+              fontWeight="600"
+              my={{ base: 4, md: "1.5rem" }}
+            >
               Simon Forrest
             </Text>
             <Text>
@@ -282,7 +329,11 @@ const Body = () => {
               border="solid 2px white"
               borderRadius="20px"
               px="1.5rem"
-              my="1.5rem"
+              my={{ base: 4, md: "1.5rem" }}
+              _hover={{
+                color: "#653cf0",
+                bg: "white",
+              }}
             >
               Learn More
             </Button>

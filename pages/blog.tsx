@@ -48,9 +48,9 @@ const Blog = ({ posts }: Props) => {
         <Box
           bg="#653cf0"
           color="white"
-          w="65%"
+          w={{ base: "100%", md: "65%" }}
           margin=" 0 auto"
-          px={24}
+          px={{ base: 4, md: 24 }}
           py={16}
         >
           <Text fontSize="2rem">Boys and Education</Text>
@@ -89,7 +89,7 @@ const Blog = ({ posts }: Props) => {
         <Box my={12}>
           <Flex flexDirection="row" justifyContent="space-around">
             <Link href="/posts">All posts</Link>
-            <Flex w="40%" gap="1rem">
+            <Flex w={{ base: "100%", md: "45%" }} gap="1rem">
               <Input type="text" placeholder="search" />
               <Button>Login/Sign up</Button>
             </Flex>
@@ -100,13 +100,13 @@ const Blog = ({ posts }: Props) => {
         <Flex justifyContent="center" flexDirection="column">
           {posts.map((post: Posts) => (
             <Box
-              w="65%"
+              w={{ base: "100%", md: "65%" }}
               border="solid 1px lightgrey"
               display="block"
               m="10px auto"
             >
               <Link key={post._id} href={`/post/${post.slug.current}`}>
-                <Flex flexDirection="row">
+                <Flex flexDirection={{ base: "column", md: "row" }}>
                   <Box maxW="454px">
                     {post.mainImage && (
                       <Image
@@ -115,7 +115,7 @@ const Blog = ({ posts }: Props) => {
                       />
                     )}
                   </Box>
-                  <Flex flexDir="column" w="50%" p={4}>
+                  <Flex flexDir="column" w={{ base: "100%", md: "50%" }} p={4}>
                     <Flex w="fit-content" flexDir="row" gap="1rem">
                       {post.author.image && (
                         <Image

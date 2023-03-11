@@ -19,10 +19,10 @@ const About = () => {
       <Box
         bg="#653cf0"
         color="white"
-        mx={24}
-        px={24}
+        mx={{ base: 0, md: 24 }}
+        px={{ base: 4, md: 24 }}
         py={24}
-        textAlign="center"
+        textAlign={{ base: "left", md: "center" }}
       >
         <Text fontSize={24} mb={4}>
           Our Organisation
@@ -41,31 +41,34 @@ const About = () => {
           <strong>Simon Forrest:</strong> simon.forrest@durham.ac.uk
         </Text>
       </Box>
-      <Box textAlign="center" w="50%" margin="0 auto">
-        <Wrapper>
-          <Text color="#653cf0" fontSize={24}>
-            What we offer
-          </Text>
-          <Text mb={4}>
-            Two projects have driven our approach. The About Boys Course (ABC
-            0-5), is a 4-session programme, targeting parents who have sons.
-            These are offered in Children's Centres, where we have trained over
-            300 people to deliver courses throughout England{" "}
-            <Link>Read More</Link>.
-          </Text>
-          <Text mb={4}>
-            The second (and our main focus now), is our Stand Out Boys Project
-            that targets children in reception who struggle to settle into their
-            learning (read more). While there are several spin-off initiatives,
-            these two projects continue to be our main offering.
-          </Text>
-          <Text mb={4}>
-            This website’s primary purpose is to disseminate information to
-            professionals and parents, what we do, and what we have learnt from
-            our work. There are links to more detailed information on the
-            ‘resources page and follow our blog for regular updates.
-          </Text>
-        </Wrapper>
+      <Box
+        w={{ base: "100%", md: "50%" }}
+        p={{ base: 4 }}
+        margin="0 auto"
+        textAlign={{ base: "left", md: "center" }}
+        lineHeight="32px"
+      >
+        <Text color="#653cf0" fontSize={32} fontWeight={700} mb={4}>
+          What we deliver
+        </Text>
+        <Text mb={4}>
+          Two projects have driven our approach. The About Boys Course (ABC
+          0-5), is a 4-session programme, targeting parents who have sons. These
+          are offered in Children's Centres, where we have trained over 300
+          people to deliver courses throughout England <Link>Read More</Link>.
+        </Text>
+        <Text mb={4}>
+          The second (and our main focus now), is our Stand Out Boys Project
+          that targets children in reception who struggle to settle into their
+          learning (read more). While there are several spin-off initiatives,
+          these two projects continue to be our main offering.
+        </Text>
+        <Text mb={4}>
+          This website’s primary purpose is to disseminate information to
+          professionals and parents, what we do, and what we have learnt from
+          our work. There are links to more detailed information on the
+          ‘resources page and follow our blog for regular updates.
+        </Text>
       </Box>
       <Footer />
     </>
