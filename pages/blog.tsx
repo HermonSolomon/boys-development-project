@@ -104,6 +104,7 @@ const Blog = ({ posts }: Props) => {
               border="solid 1px lightgrey"
               display="block"
               m="10px auto"
+              key={post._id}
             >
               <Link key={post._id} href={`/post/${post.slug.current}`}>
                 <Flex flexDirection={{ base: "column", md: "row" }}>
@@ -128,7 +129,7 @@ const Blog = ({ posts }: Props) => {
                       )}
 
                       <Text>{post.author.name}</Text>
-                      <Text>Feb 9, 2021 | 8 min</Text>
+                      <Text>{new Date(post._createdAt).toLocaleString()}</Text>
                     </Flex>
 
                     <Text fontSize="34px" fontWeight={600}>

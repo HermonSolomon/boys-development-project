@@ -247,7 +247,7 @@ const Body = () => {
           flexWrap="wrap"
           flexDir={{ base: "column", md: "row" }}
         >
-          <Box flex=" 1 1 30%">
+          <Box flex="1 1 30%">
             <Text
               fontSize="24px"
               fontWeight="600"
@@ -277,7 +277,7 @@ const Body = () => {
               Learn More
             </Button>
           </Box>
-          <Box flex=" 1 1 30%">
+          <Box flex="1 1 30%">
             <Text
               fontSize="24px"
               fontWeight="600"
@@ -307,7 +307,7 @@ const Body = () => {
               Learn More
             </Button>
           </Box>
-          <Box flex=" 1 1 30%">
+          <Box flex="1 1 30%">
             <Text
               fontSize="24px"
               fontWeight="600"

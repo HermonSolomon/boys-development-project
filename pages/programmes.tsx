@@ -28,7 +28,7 @@ const Programmes = () => {
           justifyContent="center"
           mb={{ base: 4, md: 8 }}
           flexWrap="wrap"
-          flexDirection="column-reverse"
+          flexDirection={{ base: "column-reverse", md: "row-reverse" }}
         >
           <Flex
             bg="white"
@@ -58,7 +58,7 @@ const Programmes = () => {
           justifyContent="center"
           mb={{ base: 4, md: 8 }}
           flexWrap="wrap"
-          flexDirection="column-reverse"
+          flexDirection={{ base: "column-reverse", md: "row-reverse" }}
         >
           <Flex
             bg="white"
@@ -88,7 +88,7 @@ const Programmes = () => {
           justifyContent="center"
           mb={{ base: 4, md: 8 }}
           flexWrap="wrap"
-          flexDirection="column-reverse"
+          flexDirection={{ base: "column-reverse", md: "row-reverse" }}
         >
           <Flex
             bg="white"
@@ -98,7 +98,6 @@ const Programmes = () => {
             flexDirection="column"
             textAlign="left"
             py={{ base: 8, md: "8.5rem" }}
-            mb={4}
           >
             <Text color="#653cf0" fontWeight={600} mb={6}>
               Stand Out Boys Project
