@@ -138,7 +138,7 @@ const Post = ({ post }: Props) => {
         )}
         <Box mb={20}>
           <Text>{post.description}</Text>
-          {/* PortableText allows us to maintain the styling that has been provided from within sanity body content */}
+
           <PortableText
             className=""
             dataset={process.env.NEXT_PUBLIC_SANITY_DATASET!}
