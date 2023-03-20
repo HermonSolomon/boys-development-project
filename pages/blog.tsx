@@ -1,29 +1,13 @@
 import { Header } from "@/components/Header/Header";
 import { Footer } from "@/components/Footer/Footer";
 import { Text, Box, Flex, Input, Button, Image } from "@chakra-ui/react";
-import { sanityClient, urlFor } from "../sanity";
+import { urlFor } from "../sanity";
 import type { Posts } from "../types.d";
 import Link from "next/link";
+import { getPosts } from "@/pages/api/getPosts";
 
 export const getServerSideProps = async () => {
-  const query = `*[_type == "post"]{
-    _id,
-    title,
-    author-> {
-      name,
-      image
-    },
-    description,
-    mainImage,
-    slug
-  }`;
-
-  const posts = await sanityClient.fetch(query);
-  return {
-    props: {
-      posts,
-    },
-  };
+  return getPosts();
 };
 
 interface Props {
@@ -98,7 +82,7 @@ const Blog = ({ posts }: Props) => {
         {/* Blog */}
 
         <Flex justifyContent="center" flexDirection="column">
-          {posts.map((post: Posts) => (
+          {posts?.map((post: Posts) => (
             <Box
               w={{ base: "100%", md: "65%" }}
               border="solid 1px lightgrey"

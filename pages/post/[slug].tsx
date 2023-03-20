@@ -4,21 +4,33 @@ import { Header } from "@/components/Header/Header";
 import { GetStaticPaths, GetStaticProps } from "next";
 import {
   Box,
+  Button,
   Divider,
   Flex,
   FormControl,
   HStack,
   Image,
-  Input,
+  Textarea,
   Link,
   ListItem,
   Text,
+  Input,
+  FormErrorMessage,
+  FormLabel,
 } from "@chakra-ui/react";
 import { sanityClient, urlFor } from "../../sanity";
 import PortableText from "react-portable-text";
 import type { Posts } from "../../types.d";
 import { FaFacebook, FaTwitter, FaYoutube, FaInstagram } from "react-icons/fa";
 import { type SubmitHandler, useForm } from "react-hook-form";
+import { getPosts } from "../api/getPosts";
+
+interface IFormInput {
+  _id: string;
+  name: string;
+  email: string;
+  comment: string;
+}
 
 export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
   const query = `*[_type == "post"]{
@@ -57,6 +69,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         approved == true],
         description,
         mainImage,
+    mainImage,
     slug,
     body
   }`;
@@ -71,9 +84,23 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     };
   }
 
+  const allPostsQuery = `*[_type == "post"]{
+    _id,
+    title,
+    author-> {
+      name,
+      image
+    },
+    description,
+    mainImage,
+    slug
+  }`;
+
+  const posts = await sanityClient.fetch(allPostsQuery);
   return {
     props: {
       post,
+      posts,
       revalidate: 60, // after 60 secs the cached version of the content gets updated
     },
   };
@@ -81,26 +108,36 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
 interface Props {
   post: Posts;
+  posts: Posts[];
 }
 
-interface FormValues {
-  comment: string;
-}
+const Post = ({ post, posts }: Props) => {
+  console.log("this is posts from slug: ", posts);
 
-const Post = ({ post }: Props) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormValues>({ mode: "onBlur" });
+  } = useForm<IFormInput>({ mode: "onBlur" });
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const onSubmit: SubmitHandler<FormValues> = async (data) => {
-    setIsSubmitting(true);
-    // Perform some action with the form data (e.g. send it to a backend API)
-    console.log(data);
-    setIsSubmitting(false);
+  const onSubmit: SubmitHandler<IFormInput> = async (data) => {
+    try {
+      const response = await fetch("/api/createComment", {
+        method: "POST",
+        body: JSON.stringify(data),
+      });
+      if (response.ok) {
+        console.log(data);
+        setIsSubmitted(true);
+      } else {
+        throw new Error(`Error ${response.status}: ${response.statusText}`);
+      }
+    } catch (error) {
+      console.error(error);
+      setIsSubmitted(false);
+    }
   };
 
   return (
@@ -197,8 +234,32 @@ const Post = ({ post }: Props) => {
           <Link href="/blog">See All</Link>
         </Flex>
         <Flex flexDirection="row" gap="1rem">
-          <Box w="200px" h="150px" bg="grey"></Box>
-          <Box w="200px" h="150px" bg="grey"></Box>
+          {posts?.map((post: Posts) => (
+            <Box
+              w={{ base: "100%", md: "65%" }}
+              border="solid 1px lightgrey"
+              display="block"
+              m="10px auto"
+              key={post._id}
+            >
+              <Link key={post._id} href={`/post/${post.slug.current}`}>
+                <Flex flexDirection={{ base: "column", md: "row" }}>
+                  <Box maxW="454px">
+                    {post.mainImage && (
+                      <Image
+                        src={urlFor(post.mainImage).url()!}
+                        alt="blog post number one"
+                      />
+                    )}
+                  </Box>
+
+                  <Text fontSize="34px" fontWeight={600}>
+                    {post.title}
+                  </Text>
+                </Flex>
+              </Link>
+            </Box>
+          ))}
         </Flex>
       </Box>
 
@@ -213,22 +274,103 @@ const Post = ({ post }: Props) => {
           width=" 100%"
           margin=" 1.5rem 0"
         />
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <FormControl>
+
+        {isSubmitted ? (
+          <Box bg="#653df0" color="white" w="100%" maxW="container.lg">
+            <Text fontSize="28px">Comment Submitted!</Text>
+            <Text fontSize="18px">
+              Once it has been approved - It will appear below
+            </Text>
+          </Box>
+        ) : (
+          <form id={post._id} onSubmit={handleSubmit(onSubmit)}>
+            <FormControl isInvalid={!!errors.name}>
+              <Input
+                {...register("_id")}
+                type="hidden"
+                name="_id"
+                value={post._id}
+              />
+              <FormLabel htmlFor="name">Name:</FormLabel>
+              <Input
+                type="text"
+                id="name"
+                bg="transparent"
+                border="none"
+                borderBottom={errors.name ? "solid 2px red" : "solid 2px grey"}
+                borderRadius="0"
+                boxShadow="none !important"
+                max-width="100%"
+                mb={2}
+                _focus={{
+                  zIndex: "1",
+                  borderColor: "#3182ce",
+                  boxShadow: "none",
+                }}
+                {...register("name", { required: "Name is required" })}
+              />
+              <FormErrorMessage>{errors.name?.message}</FormErrorMessage>
+            </FormControl>
+            <FormControl isInvalid={!!errors.email}>
+              <FormLabel htmlFor="email">Email:</FormLabel>
+              <Input
+                type="email"
+                id="email"
+                border="none"
+                borderBottom={
+                  !!errors.email ? "solid 2px red" : "solid 2px grey"
+                }
+                borderRadius="0"
+                boxShadow="none !important"
+                max-width="100%"
+                mb={2}
+                _focus={{
+                  zIndex: "1",
+                  borderColor: "#3182ce",
+                  boxShadow: "none",
+                }}
+                {...register("email", { required: "Email is required" })}
+              />
+              <FormErrorMessage>{errors.email?.message}</FormErrorMessage>
+            </FormControl>
+            <FormControl>
+              <Textarea
+                {...register("comment")}
+                placeholder="Write a comment."
+                border="solid 1px grey"
+                py="1.5rem"
+                _focus={{
+                  zIndex: "1",
+                  borderColor: "#3182ce",
+                  boxShadow: "none",
+                }}
+              />
+              <FormErrorMessage>{errors.comment?.message}</FormErrorMessage>
+            </FormControl>
             <Input
-              type="text"
-              id="comment"
-              placeholder="Write a comment."
-              border="solid 1px grey"
-              py="1.5rem"
-              _focus={{
-                zIndex: "1",
-                borderColor: "#3182ce",
-                boxShadow: "none",
-              }}
+              type="submit"
+              m="auto"
+              variant="outline"
+              color="#653cf0"
+              border="solid 2px #653cf0"
+              borderRadius="20px"
+              my={9}
+              px="2.5rem"
             />
-          </FormControl>
-        </form>
+            <Button
+              type="submit"
+              m="auto"
+              variant="outline"
+              color="#653cf0"
+              border="solid 2px #653cf0"
+              borderRadius="20px"
+              my={9}
+              px="2.5rem"
+            >
+              Cancel
+            </Button>
+          </form>
+        )}
       </Box>
 
       <Footer />
