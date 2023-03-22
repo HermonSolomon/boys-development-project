@@ -233,8 +233,8 @@ const Post = ({ post, posts }: Props) => {
           </Text>
           <Link href="/blog">See All</Link>
         </Flex>
-        <Flex flexDirection="row" gap="1rem">
-          {posts?.map((post: Posts) => (
+        <Flex flexDirection={{ base: "column", md: "row" }} gap="1rem">
+          {posts?.slice(0, 2).map((post: Posts) => (
             <Box
               w={{ base: "100%", md: "65%" }}
               border="solid 1px lightgrey"
@@ -253,7 +253,11 @@ const Post = ({ post, posts }: Props) => {
                     )}
                   </Box>
 
-                  <Text fontSize="34px" fontWeight={600}>
+                  <Text
+                    fontSize={{ base: "18px", md: "24px" }}
+                    fontWeight={600}
+                    p={2}
+                  >
                     {post.title}
                   </Text>
                 </Flex>
@@ -371,6 +375,22 @@ const Post = ({ post, posts }: Props) => {
             </Button>
           </form>
         )}
+        {/* Comments */}
+        {post.comments.map((comment) => (
+          <Box
+            key={comment._id}
+            border="solid 1px grey"
+            px={{ base: 2, md: "12px" }}
+            py={{ base: 2, md: "12px" }}
+            borderRadius=".5rem"
+            mb={2}
+          >
+            <Text>{new Date(comment._updatedAt).toLocaleString()}</Text>
+            <Text>
+              By: {comment.name}: {comment.comment}
+            </Text>
+          </Box>
+        ))}
       </Box>
 
       <Footer />
